@@ -1,0 +1,18 @@
+1] Write a C# program and compute the sum of the digits of an integer.
+
+using System;
+					
+public class Program
+{
+    public static void Main()
+	{	
+		int sum = 0;
+		Console.WriteLine("Enter a number:");
+		int x = Convert.ToInt32(Console.ReadLine());
+		while(x != 0){
+			sum += x % 10;
+			x /= 10;
+		}
+		Console.WriteLine(sum);
+  }
+}
