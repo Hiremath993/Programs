@@ -1,0 +1,485 @@
+1] Fibonacci Series: In case of fibonacci series, next number is the sum of previous two numbers for example 0, 1, 1, 2, 3, 5, 8, 13, 21 etc. The first two numbers of fibonacci series are 0 and 1.
+
+ using System;  
+ 
+ public class FibonacciExample  
+   {  
+     public static void Main()  
+      {  
+         int n1=0,n2=1,n3,i,number;    
+         Console.Write("Enter the number: ");    
+         number = Convert.ToInt32(Console.ReadLine());  
+         Console.Write(n1+" "+n2+" ");   
+
+         for(i=2;i<number;i++) 
+         {    
+          n3=n1+n2;    
+          Console.Write(n3+" ");    
+          n1=n2;    
+          n2=n3;    
+         }    
+      }  
+   }  
+
+2] Prime Number: Prime number is a number that is greater than 1 and divided by 1 or itself. In other words, prime numbers can't be divided by other numbers than itself or 1. For example 2, 3, 5, 7, 11, 13, 17, 19, 23.... are the prime numbers.
+
+using System;
+
+public class PrimeNoExample
+{
+  public static void Main()
+  {
+     Console.Write("Enter the number: ");    
+     int number = Convert.ToInt32(Console.ReadLine()); 
+     int count = 0;
+
+     for(int i=1; i<=number; i++)
+     {
+        if(number % i == 0)
+            count++;
+     }
+     if(count == 2)
+        Console.WriteLine("Number is a prime number");
+     else
+        Console.WriteLine("Number is not a prime number");
+  }
+}
+
+3] Palindrome number: A palindrome number is a number that is same after reverse. For example 121, 34543, 343, 131, 48984 are the palindrome numbers.
+
+using System;
+
+public class PalindromeExample
+{
+  public static void Main()
+  {
+       int sum = 0, rem, temp, num;
+	 Console.Write("Enter the Number: ");   
+	 num = Convert.ToInt32(Console.ReadLine());
+	 temp = num;
+	  
+	 while(num > 0)
+	 {
+		rem = num % 10;
+		sum = (sum * 10) + rem;
+		num = num / 10; 
+	 }
+	  if(temp==sum)      
+          Console.Write("Number is Palindrome.");      
+      else      
+          Console.Write("Number is not Palindrome"); 
+  }
+}
+
+O/P: 121 -> Is a palindrome.
+
+4] To check if string is a palindrome or not.
+
+using System;
+					
+public class PalindromeStrExample
+{
+	public static void Main()
+	{
+        Console.Write("Enter a string:");   
+	  string text = Console.ReadLine();
+	  Console.WriteLine(checkPalindrome(text)); 
+	}
+	
+	public static bool checkPalindrome(string text)
+	{
+	  if(text.Length <= 1)
+	  {
+	     return true;
+	  }
+	  else
+	  {
+		 if(text[0] != text[text.Length - 1])
+		 {
+			 return false;
+		 }
+		 else
+		 {
+			return checkPalindrome(text.Substring(1, text.Length - 2)); 
+		 } 
+	  }
+	}
+  }
+
+O/P: aabbaa -> True.
+
+5] Factorial Number: Factorial of n is the product of all positive descending integers. Factorial of n is denoted by n!. For example: 4! = 4*3*2*1 = 24    
+6! = 6*5*4*3*2*1 = 720    
+
+using System;
+
+public class FactorialExample
+{
+  public static void Main()
+  {
+    int number, fact = 1, i;
+	Console.Write("Enter the Number: ");   
+	number = Convert.ToInt32(Console.ReadLine());
+	  
+	for(i = 1; i<=number;i++)
+	{
+	  fact = fact * i;
+	}
+	Console.Write("Factorial of " +number+" is: "+fact);    
+  }
+}
+
+O/P: Factorial of 5 is: 120
+
+6] Armstrong number: Armstrong number is a number that is equal to the sum of cubes of its digits. For example 0, 1, 153, 370, 371 and 407 are the Armstrong numbers.
+
+using System;
+
+public class ArmstrongNoExample
+{
+  public static void Main()
+  {
+    int number, temp, rem, sum = 0;
+	Console.Write("Enter the Number: ");   
+	number = Convert.ToInt32(Console.ReadLine());
+	temp = number;
+	  
+	while(number > 0)
+	{
+	  rem = number % 10;
+	  sum = sum + rem*rem*rem;
+	  number = number/10;
+	}
+	if(temp == sum)
+		Console.Write("Armstrong Number");   
+	else
+		Console.Write("Not Armstrong Number.");
+  }
+}
+
+7] Swap numbers: We can swap two numbers without using third variable. There are two common ways to swap two numbers without using third variable:
+
+a) By * and /
+b) By + and -
+
+using System;
+
+public class PrimeNoExample
+{
+  public static void Main()
+  {
+    int a = 4, b =10;
+	Console.WriteLine("Before swap: a = "+a + " " +"b = " +b);
+	a = a*b;
+	b = a/b;
+	a = a/b;
+	Console.WriteLine("After swap: a = "+a + " " +"b = " +b);
+  }
+}
+
+using System;
+
+public class PrimeNoExample
+{
+  public static void Main()
+  {
+    int a = 4, b =10;
+	Console.WriteLine("Before swap: a = "+a + " " +"b = " +b);
+	a = a+b;
+	b = a-b;
+	a = a-b;
+	Console.WriteLine("After swap: a = "+a + " " +"b = " +b);
+  }
+}
+
+8] Write a program that prints an identity matrix using a for loop, in other words takes a value n from the user and shows the identity table of size n * n.
+
+using System;
+
+public class Problem8
+{
+  public static void Main()
+  {
+      int size;
+	Console.WriteLine("Enter the size of the Identity Matrix:");
+	size = Convert.ToInt32(Console.ReadLine());
+	  
+	for(int i=0; i<size; i++)
+	{
+		for(int j=0; j<size; j++)
+		{
+			if(i == j)
+				Console.Write(1);
+			else
+				Console.Write(0);
+		}
+		Console.WriteLine("\n"); 
+	 }
+	 Console.ReadLine();
+  }
+}
+
+O/P: Enter the size of the Identity Matrix: 3
+     1 0 0
+     0 1 0
+     0 0 1	
+
+9] Write a C# Sharp program to accept two integers and check whether they are equal or not.
+
+using System;
+
+public class Problem8
+{
+  public static void Main()
+  {
+         int int1,int2;
+         Console.Write("Input 1st number: ");  
+         int1= Convert.ToInt32(Console.ReadLine());  
+
+        Console.Write("Input 2nd number: ");  
+        int2= Convert.ToInt32(Console.ReadLine());  
+
+        if (int1 == int2)
+        	Console.WriteLine("{0} and {1} are equal.\n",int1,int2);
+        else
+        	Console.WriteLine("{0} and {1} are not equal.\n",int1,int2);
+   }  
+ }
+
+O/P: Input 1st number: 6
+Input 2nd number: 7
+6 and 7 are not equal.
+
+10] 
+
+using System;
+
+public class Problem8
+{
+  public static void Main()
+  {
+    float PerHeight;
+    Console.Write("Accept the height of a person in centimeter and categorize them:\n");
+    Console.Write("Input the height of the person (in centimetres):");
+    PerHeight = Convert.ToInt32(Console.ReadLine());
+ 
+    if (PerHeight < 150.0)
+        Console.Write("The person is Dwarf. \n\n");
+    else if ((PerHeight >= 150.0) && (PerHeight <= 165.0))
+       Console.Write("The person is  average heighted. \n\n");
+    else if ((PerHeight >= 165.0) && (PerHeight <= 195.0))
+        Console.Write("The person is taller. \n\n");
+    else
+        Console.Write("Abnormal height.\n\n");
+   }  
+  }
+
+O/P: 
+Input the height of the person (in centimetres):190
+The person is taller.
+
+11] Write a C program to accept a coordinate point in an XY coordinate system and determine in which quadrant the coordinate point lies.
+
+using System;
+
+public class Problem8
+{
+  public static void Main()
+  {
+    int co1,co2;
+	  
+    Console.Write("Input the value for X coordinate :");
+    co1 = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input the value for Y coordinate :");
+    co2 = Convert.ToInt32(Console.ReadLine());
+
+
+	if( co1 > 0 && co2 > 0)
+	  Console.Write("The coordinate point ({0} {1}) lies in the First quandrant.\n\n",co1,co2);
+	else if( co1 < 0 && co2 > 0)
+	  Console.Write("The coordinate point ({0} {1}) lies in the Second quandrant.\n\n",co1,co2);
+	else if( co1 < 0 && co2 < 0)
+	  Console.Write("The coordinate point ({0} {1}) lies in the Third quandrant.\n\n",co1,co2);
+	else if( co1 > 0 && co2 < 0)
+	  Console.Write("The coordinate point ({0} {1}) lies in the Fourth quandrant.\n\n",co1,co2);
+	else if( co1 == 0 && co2 == 0)
+	  Console.Write("The coordinate point ({0} {1}) lies at the origin.\n\n",co1,co2);
+
+   }  
+  }
+
+O/P: Input the value for X coordinate :3
+Input the value for Y coordinate :4
+The coordinate point (3 4) lies in the First quandrant.
+
+12] Write a C# Sharp program to check whether a triangle is Equilateral, Isosceles or Scalene.
+
+using System;
+
+public class Problem8
+{
+  public static void Main()
+  {
+    int sidea, sideb, sidec; 
+  
+    Console.Write("Input side 1 of triangle: ");
+    sidea= Convert.ToInt32(Console.ReadLine());
+
+    Console.Write("Input side 2 of triangle: ");
+    sideb= Convert.ToInt32(Console.ReadLine()); 
+
+    Console.Write("Input side 3 of triangle: ");
+    sidec= Convert.ToInt32(Console.ReadLine());  
+   
+    if(sidea==sideb && sideb==sidec) 
+    {  
+        Console.Write("This is an equilateral triangle.\n");  
+    }  
+    else if(sidea==sideb || sidea==sidec || sideb==sidec) 
+    {  
+        Console.Write("This is an isosceles triangle.\n");  
+    }  
+    else 
+    {  
+        Console.Write("This is a scalene triangle.\n");  
+    }  
+   }  
+  }
+
+O/P: Input side 1 of triangle: 40
+Input side 2 of triangle: 20
+Input side 3 of triangle: 20
+This is an isosceles triangle.
+
+13] Write a C# Sharp program to check whether a triangle can be formed by the given value for the angles.
+
+using System;
+
+public class Problem8
+{
+  public static void Main()
+  {
+    int anga, angb, angc, sum; //are three angles of a triangle  
+	  
+    Console.Write("Input angle1 of triangle: ");
+    anga= Convert.ToInt32(Console.ReadLine());
+
+    Console.Write("Input angle 2 of triangle: ");
+    angb= Convert.ToInt32(Console.ReadLine()); 
+
+    Console.Write("Input angle 3 of triangle: ");
+    angc= Convert.ToInt32(Console.ReadLine()); 
+ 
+ 	sum = anga + angb + angc;   
+	  
+    if(sum == 180)   
+    {  
+        Console.Write("The triangle is valid.\n");  
+    }  
+    else  
+    {  
+        Console.Write("The triangle is not valid.\n");  
+    }  
+   }  
+ }
+
+O/P: Input angle 1 of triangle: 40
+Input angle 2 of triangle: 65
+Input angle 3 of triangle: 55
+The triangle is not valid.
+
+14] Write a C# Sharp program to calculate profit and loss on a transaction.
+
+using System;
+
+public class Problem8
+{
+  public static void Main()
+  {
+    int cprice,sprice, result; 
+
+     Console.Write("Input Cost Price: ");  
+     cprice= Convert.ToInt32(Console.ReadLine()); 
+     Console.Write("Input Selling Price: ");  
+     sprice= Convert.ToInt32(Console.ReadLine());  
+      
+    if(sprice>cprice) 
+    {  
+        result = sprice-cprice;  
+        Console.Write("\nProfit amount : {0}\n", result);  
+    }  
+    else if(cprice>sprice)  
+    {  
+        result = cprice-sprice;  
+        Console.Write("\nLoss of amount : {0}\n", result);  
+    }  
+    else   
+    {  
+        Console.Write("\nYou are running in no profit no loss condition.\n");  
+    }  
+   }  
+ }
+
+O/P: Input Cost Price: 500
+Input Selling Price: 700
+
+Profit amount : 200
+
+15] Write a program in C# Sharp to read any day number in integer and display day name in the word.
+
+using System;
+
+public class Problem8
+{
+  public static void Main()
+  {
+    int dayno;
+    Console.Write("Input Day No : ");
+    dayno = Convert.ToInt32(Console.ReadLine());
+
+   switch(dayno)
+   {
+	case 1:
+	       Console.Write("Monday \n");
+	       break;
+	case 2:
+	       Console.Write("Tuesday \n");
+	       break;
+	case 3:
+	       Console.Write("Wednesday \n");
+	       break;
+	case 4:
+	       Console.Write("Thursday \n");
+	       break;
+	case 5:
+	       Console.Write("Friday \n");
+	       break;
+	case 6:
+	       Console.Write("Saturday \n");
+	       break;
+	case 7:
+	       Console.Write("Sunday  \n");
+	       break;
+	default:
+	       Console.Write("Invalid day number. \nPlease try again ....\n");
+	       break;
+   }  
+  }
+}
+
+O/P: Input Day No : 5
+Friday
+
+
+
+
+
+
+
+
+
+
+
+
+
+
