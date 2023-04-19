@@ -1,0 +1,517 @@
+1] Write a program in C# Sharp to read n number of values in an array and display it in reverse order.
+
+using System;
+
+public class Problem1
+{
+  public static void Main()
+  {
+     int i, n;
+	 int[] arr = new int[100];
+	 
+	 Console.WriteLine("Enter number of elements to store in an array:");
+	 n = Convert.ToInt32(Console.ReadLine());
+	 
+	 Console.Write("\nThe values store into the array are : \n");
+	 for(i=0; i<n; i++)
+	 {
+		 arr[i] = Convert.ToInt32(Console.ReadLine());
+	 }
+	  
+	 Console.Write("\n\nThe values store into the array in reverse are :");
+	 for(i=n-1; i>=0; i--)
+	 {
+		 Console.Write("{0}", arr[i]);
+	 }  
+    }  
+  }
+
+O/P: Enter number of elements to store in an array:
+5
+
+The values store into the array are : 
+1
+2
+7
+8
+4
+
+The values store into the array in reverse are :48721
+
+2] Write a program in C# Sharp to find the sum of all elements of array.
+
+using System;
+
+public class Problem2
+{
+  public static void Main()
+  {
+     int i, n, sum = 0;
+	 int[] arr = new int[100];
+	 
+	 Console.WriteLine("Enter number of elements to store in an array:");
+	 n = Convert.ToInt32(Console.ReadLine());
+	 
+	 Console.Write("\nThe values store into the array are : \n");
+	 for(i=0; i<n; i++)
+	 {
+		 arr[i] = Convert.ToInt32(Console.ReadLine());
+		 sum = sum + arr[i];
+	 }
+	  
+	 Console.Write("Sum of array elements:" + sum);
+   }  
+  }
+
+O/P: Enter number of elements to store in an array:
+3
+
+The values store into the array are : 
+2
+5
+8
+Sum of array elements:15
+
+
+3]  Write a program in C# Sharp to copy the elements one array into another array.
+
+using System;
+
+public class Problem3
+{
+  public static void Main()
+  {
+     int i, n;
+	 int[] arr1 = new int[100];
+	 int[] arr2 = new int[100];
+	 
+	 Console.WriteLine("Enter number of elements to store in an array:");
+	 n = Convert.ToInt32(Console.ReadLine());
+	 
+	 Console.Write("\nThe elements stored in the first array are :\n");
+	 for(i=0; i<n; i++)
+	 {
+		 arr1[i] = Convert.ToInt32(Console.ReadLine());
+		 arr2[i] = arr1[i];
+	 }
+	 
+	 Console.Write("\n\nThe elements copied into the second array are :\n");
+	 for(i=0; i<n; i++)
+	 {
+		 Console.Write("{0}", arr2[i]);
+	 }
+   }  
+ }
+
+O/P: Enter number of elements to store in an array:
+4
+
+The elements stored in the first array are :
+1
+2
+4
+5
+
+
+The elements copied into the second array are :
+1245
+
+4] Write a program in C# Sharp to find the length of a string without using library function.
+
+using System;
+
+public class Problem4
+{
+  public static void Main()
+  {
+	 Console.WriteLine("Enter the string:");
+     string str = Console.ReadLine();
+	 int len = 0;
+	 
+	 foreach(char ch in str)
+	 {
+		 len++;
+	 }
+	 Console.WriteLine("Length of a string is:"+ len);
+	  
+   }  
+ }
+
+O/P: Enter the string:
+w3resource
+Length of a string is:10
+
+5] Write a program in C# Sharp to separate the individual characters from a string.
+
+using System;
+
+public class Problem5
+{
+  public static void Main()
+  {
+	 Console.WriteLine("Enter the string:");
+     string str = Console.ReadLine();
+	 int i = 0;
+	  
+	 Console.Write("The characters of string are:");
+	 while(i <= str.Length-1)
+	 {
+		Console.Write("{0} ",str[i]);
+		i++;
+	 }
+	 Console.Write("\n");
+   }  
+ }
+
+O/P: Enter the string:
+w3resource
+The characters of string are:w 3 r e s o u r c e
+
+6] Write a program in C# Sharp to print individual characters of the string in reverse order.
+
+using System;
+
+public class Problem6
+{
+  public static void Main()
+  {
+	 Console.WriteLine("Enter the string:");
+     string str = Console.ReadLine();
+	 int i = str.Length-1;
+	  
+	 Console.Write("The characters of string are:");
+	 while(i >= 0)
+	 {
+		Console.Write("{0} ",str[i]);
+		i--;
+	 }
+	 Console.Write("\n");
+   }  
+ }
+
+O/P: Enter the string:
+rosy
+The characters of string are:y s o r
+
+7] Write a program in C# Sharp to count the total number of words in a string.
+
+using System;
+
+public class Problem7
+{
+  public static void Main()
+  {
+	 string str;
+     int word_count,i;
+     
+	 Console.Write("Input the string : ");
+     str = Console.ReadLine();
+	
+     i = 0;
+     word_count = 1;
+
+     while (i <= str.Length - 1)
+     {
+        /* check whether the current character is white space or new line or tab character*/
+        if(str[i]==' ' || str[i]=='\n' || str[i]=='\t')
+        {
+            word_count++;
+        }
+		
+        i++;
+     }
+
+   Console.Write("Total number of words in the string is : {0}\n", word_count);
+  }  
+}
+
+O/P: Input the string : Glad to hear
+Total number of words in the string is : 3
+
+8] Write a program in C# Sharp to count a total number of alphabets, digits and special characters in a string.
+
+using System;
+
+public class Problem8
+{
+  public static void Main()
+  {
+	 int alpha, dig, spcl, i;
+	 alpha = dig = spcl = i = 0;
+	 Console.WriteLine("Enter the string:");
+	 string str = Console.ReadLine();
+	  
+	 while(i <= str.Length-1)
+	 {
+		 if((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
+			alpha++;
+		 else if((str[i] >= '0' && str[i] <= '9'))
+			dig++;
+	     else
+			 spcl++;
+		 i++;
+	 }
+	  
+	 Console.WriteLine("Number of Alphabets in the string is : {0}\n", alpha);
+   	 Console.WriteLine("Number of Digits in the string is : {0}\n", dig);
+     Console.WriteLine("Number of Special characters in the string is : {0}\n", spcl);
+   }  
+ }
+
+O/P: Enter the string: Welcome to w3resource.com
+
+Number of Alphabets in the string is : 21
+
+Number of Digits in the string is : 1
+
+Number of Special characters in the string is : 3
+
+9] Write a program in C# Sharp to count a total number of vowel or consonant in a string.
+
+using System;
+
+public class Problem9
+{
+  public static void Main()
+  {
+	 int vowel = 0, cons = 0;
+	 Console.WriteLine("Enter the string:");
+	 string str = Console.ReadLine();
+	  
+	 for(int i=0; i<=str.Length-1; i++)
+	 {
+		 if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u')
+			 vowel++;
+		 else if(str[i] >= 'a' && str[i] <= 'z' || str[i] >= 'A' && str[i] <= 'Z')
+			 cons++;
+	 }
+	  
+	 Console.WriteLine("\nThe total number of vowel in the string is : " + vowel);
+       Console.WriteLine("The total number of consonant in the string is : " + cons); 		
+   }  
+ }
+
+O/P: Enter the string:
+My name is Rohn
+
+The total number of vowel in the string is : 4
+The total number of consonant in the string is : 8
+
+
+10] Write a C# Sharp program to check whether a given substring is present in the given string
+
+using System;
+
+public class Problem10
+{
+  public static void Main()
+  {
+	 bool m;
+	 Console.WriteLine("Enter the string:");
+	 string str1 = Console.ReadLine();
+	 
+	 Console.WriteLine("Enter the Substring to search:");
+	 string str2 = Console.ReadLine();
+	  
+	 m = str1.Contains(str2);
+	 
+	 if(m)
+	  	Console.Write("The substring exists in the string.\n\n");
+	 else
+	    Console.Write("The substring doesn't exist in the string.\n\n"); 
+   }  
+ }
+
+O/P: Enter the string:
+This is a Test String
+Enter the Substring to search:
+Test
+The substring exists in the string.
+
+11] Write a C# Sharp program for Bubble sort.
+
+using System;
+
+public class Problem
+{
+   public static void bubbleSort(int[] arr)
+   {
+   	 int n = arr.Length;
+	 int temp;
+	 for(int i=0; i<n-1; i++)
+	 	for(int j=0; j<n-1-i; j++)
+			if(arr[j] > arr[j+1])
+			{
+				temp = arr[j];
+	   			arr[j] = arr[j+1];
+	  			arr[j+1] = temp;
+			}
+   }
+   public static void printArray(int[] arr)
+   {
+ 	  int n = arr.Length;
+	  for(int i=0; i<n; i++)
+		 Console.Write(arr[i] + " ");
+	  Console.WriteLine();  
+   }
+   public static void Main()
+   {
+	  int[] arr = {4, 2, 3, 1, 8};
+	  Console.WriteLine("\nUnsorted array:");
+	  printArray(arr);
+	  bubbleSort(arr); 
+	  Console.WriteLine("\nSorted array:");
+	  printArray(arr);
+   }  
+ }
+
+O/P: Unsorted array:
+4 2 3 1 8 
+
+Sorted array:
+1 2 3 4 8
+
+12] Write a C# Sharp program for Insertion sort.
+
+using System;
+
+public class Problem
+{
+     public static void insertionSort(int[] arr)
+     {
+	  int n = arr.Length;
+        for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+ 
+        while (j >= 0 && arr[j] > key) {
+           arr[j + 1] = arr[j];
+           j = j - 1;
+       }
+            arr[j + 1] = key;
+     }
+   }
+ 
+   public static void printArray(int[] arr)
+   {
+	    int n = arr.Length;
+        for (int i = 0; i < n; ++i)
+            Console.Write(arr[i] + " ");
+ 
+        Console.Write("\n");
+   }
+   public static void Main()
+   {
+	  int[] arr = {4, 2, 3, 1, 8};
+	  Console.WriteLine("\nUnsorted array:");
+	  printArray(arr);
+	  insertionSort(arr); 
+	  Console.WriteLine("\nSorted array:");
+	  printArray(arr);
+   }  
+ }
+
+O/P: Unsorted array:
+4 2 3 1 8 
+
+Sorted array:
+1 2 3 4 8
+
+13] Write a C# Sharp program that takes three letters as input and display them in reverse order.
+
+using System;
+
+public class Problem
+{
+   public static void Main()
+   {
+	char letter,letter1,letter2;
+  
+    Console.Write("Input letter: ");
+    letter = Convert.ToChar(Console.ReadLine());
+ 
+    Console.Write("Input letter: ");
+    letter1 = Convert.ToChar(Console.ReadLine());       
+ 
+    Console.Write("Input letter: ");
+    letter2 = Convert.ToChar(Console.ReadLine());
+     
+    Console.WriteLine("{0} {1} {2}",letter2,letter1,letter);
+   }  
+}
+
+O/P: Input letter1: b
+Input letter2: d
+Input letter3: e
+e d b
+
+14] Write a program in C# Sharp which is a Menu-Driven Program to compute the area of the various geometrical shape.
+
+using System;
+
+public class Problem
+{
+   public static void Main()
+   {
+	  int choice,r,l,w,b,h;
+      double area=0;
+
+      Console.Write("Input 1 for area of circle\n");
+      Console.Write("Input 2 for area of rectangle\n");
+      Console.Write("Input 3 for area of triangle\n");
+      Console.WriteLine("Input your choice : ");
+      choice = Convert.ToInt32(Console.ReadLine());
+
+      switch(choice)
+      {
+           case 1:
+                 Console.Write("Input radius of the circle : ");
+                 r = Convert.ToInt32(Console.ReadLine());
+                    area=3.14*r*r;
+                 break;
+            case 2:
+                  Console.Write("Input length  of the rectangle : ");
+                  l = Convert.ToInt32(Console.ReadLine());
+                  Console.Write("Input  width of the rectangle : ");
+                  w = Convert.ToInt32(Console.ReadLine());
+                  area=l*w;
+                  break;
+            case 3:
+                  Console.Write("Input the base of the triangle :");
+                  b = Convert.ToInt32(Console.ReadLine());
+                  Console.Write("Input the hight of the triangle :");
+                  h = Convert.ToInt32(Console.ReadLine());
+                         area=.5*b*h;
+                  break;
+          }
+          Console.WriteLine("The area is : {0}\n",area);
+     }   
+ }
+
+O/P: Input 1 for area of circle
+Input 2 for area of rectangle
+Input 3 for area of triangle
+Input your choice : 
+2
+Input length  of the rectangle : 15
+Input  width of the rectangle : 25
+The area is : 375
+
+15] Write a C# Sharp program to get the day of the week for a specified date.
+
+using System;
+
+public class Problem
+{
+   public static void Main()
+   {
+	  DateTime dt = new DateTime(2023, 04, 19);
+      Console.WriteLine("The day of the week for {0:d} is {1}.", dt, dt.DayOfWeek);
+     }   
+ }
+
+O/P: The day of the week for 4/19/2023 is Wednesday.
+
+
+
+
