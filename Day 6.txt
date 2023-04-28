@@ -1,0 +1,228 @@
+1] Write a C# Sharp program to retrieve the current date.
+
+using System;
+
+public class Problem
+{
+   public static void Main()
+   {
+	  DateTime thisDay = DateTime.Today;
+	  Console.WriteLine("General format:" + thisDay.ToString());
+	  Console.WriteLine("Display DateTime in various formats:");
+	  Console.WriteLine(thisDay.ToString("d"));
+	  Console.WriteLine(thisDay.ToString("D"));
+	  Console.WriteLine(thisDay.ToString("g"));
+     }   
+ }
+
+O/P: General format:4/20/2023 12:00:00 AM
+Display DateTime in various formats:
+4/20/2023
+Thursday, April 20, 2023
+4/20/2023 12:00 AM
+
+2] Write C# Sharp program to determine the day of the week 40 days after the current date.
+
+using System;
+
+public class Problem
+{
+   public static void Main()
+   {
+	  DateTime today = DateTime.Now;
+	  DateTime result = today.AddDays(40);
+	  
+	  Console.WriteLine("Today: {0}",today.ToString("D"));
+	  Console.WriteLine("40 days after today: {0}", result.ToString("D"));
+     }   
+ }
+
+O/P: Today: Thursday, April 20, 2023
+40 days after today: Tuesday, May 30, 2023
+
+3] Write a C# Sharp program that compares two dates.
+
+using System;
+
+public class Problem
+{
+   public static void Main()
+   {
+	  DateTime date1 = new DateTime(2023, 03, 12, 0, 0, 0);
+	  DateTime date2 = new DateTime(2023, 03, 12, 12, 0, 0);
+	  int result = DateTime.Compare(date1, date2);
+	  string relationship;
+	   
+	  if(result < 0)
+		relationship = "is earlier than";
+	  else if(result == 0)
+		relationship = "is same time as";  
+	  else
+		relationship = "is later than";
+	  
+	  Console.WriteLine("{0} {1} {2}", date1, relationship, date2);
+     }   
+ }
+
+O/P: 03/12/2023 12:00:00 AM is earlier than 3/12/2023 12:00:00 PM
+
+4] Write a C# Sharp program to get the difference between two dates in days.
+
+using System;
+
+public class Problem
+{
+   public static void Main()
+   { 
+	 DateTime start = new DateTime(2010, 6, 14);
+	 DateTime end = new DateTime(2016, 08, 14);
+
+	 TimeSpan difference = end - start; 
+
+   	 Console.WriteLine("Difference in days: " + difference.Days); 
+   }
+}
+
+O/P: Difference in days: 2253
+
+5] Write a program in C# Sharp to compute what day was yesterday.
+
+using System;
+
+public class Problem
+{
+   static DateTime GetYesterday()
+   {
+	   return DateTime.Today.AddDays(-1);
+   }
+   
+   public static void Main()
+   { 
+	 Console.WriteLine("Today is {0}", DateTime.Today.ToString("dd/MM/yyyy"));
+	 DateTime yest = GetYesterday();
+	 Console.WriteLine("Yesterday was {0}", yest.ToString("dd/MM/yyyy"));
+   }
+}
+
+O/P: Today is 28/04/2023
+Yesterday was 27/04/2023
+
+6] Write a program in C# Sharp to compute what day will be tomorrow. 
+
+using System;
+
+public class Problem
+{
+   static DateTime GetYesterday()
+   {
+	   return DateTime.Today.AddDays(1);
+   }
+   
+   public static void Main()
+   { 
+	 Console.WriteLine("Today is {0}", DateTime.Today.ToString("dd/MM/yyyy"));
+	 DateTime tmrw = GetYesterday();
+	 Console.WriteLine("Tomorrow is {0}", tmrw.ToString("dd/MM/yyyy"));
+   }
+}
+
+O/P: Today is 28/04/2023
+Tomorrow is 29/04/2023
+
+7] Write a program in C# Sharp to get the day and month name of current date.
+
+using System;
+
+public class Problem
+{
+   public static void Main()
+   { 
+	 DateTime now = DateTime.Now;
+	 Console.WriteLine("Current month number is {0}", now.Month);
+	 Console.WriteLine("Currnt month is {0}", now.ToString("MMMM"));
+   }
+}
+
+O/P: Current month number is 4
+Currnt month is April
+
+8] Write a program in C# Sharp to print the name of the first three letters of month of a year starting form current date.
+
+using System;
+
+public class Problem
+{
+   public static void Main()
+   { 
+	 DateTime now = DateTime.Now;
+	 Console.WriteLine("Th date of today is {0}", now.ToString("dd/MM/yyyy"));
+	 Console.WriteLine("Tweleve months are:");
+	  
+	 for(int i=0; i<12; i++)
+	 {
+		 Console.WriteLine("{0}", now.ToString("MMM"));
+		 now = now.AddMonths(1);
+	 }
+	 Console.WriteLine();
+   }
+}
+
+O/P: The date of today is 28/04/2023
+Tweleve months are:
+Apr
+May
+Jun
+Jul
+Aug
+Sep
+Oct
+Nov
+Dec
+Jan
+Feb
+Mar
+
+9] Write a program in C# Sharp to print the name of month in full starting from current date.
+
+using System;
+
+public class Problem
+{
+   public static void Main()
+   { 
+	 DateTime now = DateTime.Now;
+	 Console.WriteLine("The date of today is {0}", now.ToString("dd/MM/yyyy"));
+	 Console.WriteLine("Tweleve months are:");
+	  
+	 for(int i=0; i<12; i++)
+	 {
+		 Console.WriteLine("{0}", now.ToString("MMMM"));
+		 now = now.AddMonths(1);
+	 }
+	 Console.WriteLine();
+   }
+}
+
+O/P: The date of today is 28/04/2023
+Tweleve months are:
+April
+May
+June
+July
+August
+September
+October
+November
+December
+January
+February
+March 
+
+10]
+
+
+
+
+
+
+
